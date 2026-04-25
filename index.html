@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EstudaJunto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="auth-card" id="login-screen" aria-label="Tela de login">
+      <header class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>EstudaJunto</h1>
+          <p>Grupos pra aprender melhor.</p>
+        </div>
+      </header>
+
+      <form class="form" action="#">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="exemplo@email.com" />
+
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" placeholder="********" />
+
+        <a class="helper-link" href="#">Esqueci minha senha</a>
+        <button type="submit">Entrar</button>
+      </form>
+
+      <aside class="signup-box">
+        <p class="strong">Novo por aqui?</p>
+        <p>Crie sua conta e encontre uma turma.</p>
+        <a href="#" id="go-register">Criar conta</a>
+      </aside>
+    </section>
+
+    <section class="auth-card hidden" id="register-screen" aria-label="Tela de cadastro">
+      <header class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Criar conta</h1>
+          <p>Entre nos grupos certos.</p>
+        </div>
+      </header>
+
+      <form class="form" action="#">
+        <input type="text" placeholder="Nome completo" />
+        <input type="email" placeholder="seu@email.com" />
+        <input type="password" placeholder="Senha" />
+        <input type="password" placeholder="Confirmar senha" />
+        <button type="submit">Criar conta</button>
+      </form>
+
+      <p class="terms">Ao continuar, voce aceita os <a href="#">Termos de Uso</a>.</p>
+      <div class="divider"></div>
+      <p class="signin">Ja tem uma conta? <a href="#" id="go-login">Entrar</a></p>
+    </section>
+  </main>
+
+  <script>
+    const loginScreen = document.getElementById("login-screen");
+    const registerScreen = document.getElementById("register-screen");
+    const goRegister = document.getElementById("go-register");
+    const goLogin = document.getElementById("go-login");
+
+    goRegister.addEventListener("click", function (event) {
+      event.preventDefault();
+      loginScreen.classList.add("hidden");
+      registerScreen.classList.remove("hidden");
+    });
+
+    goLogin.addEventListener("click", function (event) {
+      event.preventDefault();
+      registerScreen.classList.add("hidden");
+      loginScreen.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
