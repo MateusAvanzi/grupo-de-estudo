@@ -20,15 +20,13 @@
         </div>
       </header>
 
-      <form class="form" action="#" novalidate>
+      <form class="form" id="login-form" action="#" novalidate>
         <label for="email">Email</label>
         <input id="email" type="email" placeholder="exemplo@email.com" />
-
         <label for="senha">Senha</label>
         <input id="senha" type="password" placeholder="********" />
-
         <a class="helper-link" href="#">Esqueci minha senha</a>
-        <button type="button" class="primary-btn" id="login-enter">Entrar</button>
+        <button type="submit" class="primary-btn">Entrar</button>
       </form>
 
       <aside class="signup-box">
@@ -47,12 +45,12 @@
         </div>
       </header>
 
-      <form class="form" action="#" novalidate>
+      <form class="form" id="register-form" action="#" novalidate>
         <input type="text" placeholder="Nome completo" />
         <input type="email" placeholder="seu@email.com" />
         <input type="password" placeholder="Senha" />
         <input type="password" placeholder="Confirmar senha" />
-        <button type="button" class="primary-btn" id="register-create">Criar conta</button>
+        <button type="submit" class="primary-btn">Criar conta</button>
       </form>
 
       <p class="terms">Ao continuar, voce aceita os <a href="#">Termos de Uso</a>.</p>
@@ -62,7 +60,6 @@
 
     <section class="app-home hidden" id="home-screen" aria-label="Tela inicial">
       <p class="status-time">9:41</p>
-
       <header class="home-header">
         <div class="logo mini" aria-hidden="true"></div>
         <div>
@@ -133,8 +130,8 @@
     const loginScreen = document.getElementById("login-screen");
     const registerScreen = document.getElementById("register-screen");
     const homeScreen = document.getElementById("home-screen");
-    const loginEnter = document.getElementById("login-enter");
-    const registerCreate = document.getElementById("register-create");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
     const goRegister = document.getElementById("go-register");
     const goLogin = document.getElementById("go-login");
 
@@ -158,11 +155,13 @@
       homeScreen.classList.add("hidden");
     });
 
-    loginEnter.addEventListener("click", function () {
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
       openHome();
     });
 
-    registerCreate.addEventListener("click", function () {
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
       openHome();
     });
   </script>
