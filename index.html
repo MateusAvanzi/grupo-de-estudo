@@ -28,7 +28,7 @@
         <input id="senha" type="password" placeholder="********" />
 
         <a class="helper-link" href="#">Esqueci minha senha</a>
-        <button type="submit">Entrar</button>
+        <button type="submit" class="primary-btn">Entrar</button>
       </form>
 
       <aside class="signup-box">
@@ -52,31 +52,120 @@
         <input type="email" placeholder="seu@email.com" />
         <input type="password" placeholder="Senha" />
         <input type="password" placeholder="Confirmar senha" />
-        <button type="submit">Criar conta</button>
+        <button type="submit" class="primary-btn">Criar conta</button>
       </form>
 
       <p class="terms">Ao continuar, voce aceita os <a href="#">Termos de Uso</a>.</p>
       <div class="divider"></div>
       <p class="signin">Ja tem uma conta? <a href="#" id="go-login">Entrar</a></p>
     </section>
+
+    <section class="app-home hidden" id="home-screen" aria-label="Tela inicial">
+      <p class="status-time">9:41</p>
+
+      <header class="home-header">
+        <div class="logo mini" aria-hidden="true"></div>
+        <div>
+          <h2>Grupos</h2>
+          <p>Encontre sua proxima sessao.</p>
+        </div>
+      </header>
+
+      <label class="search-box">
+        <input type="text" placeholder="Buscar materia ou tema" />
+        <span class="search-icon" aria-hidden="true"></span>
+      </label>
+
+      <div class="filter-row">
+        <button type="button" class="chip active">Todos</button>
+        <button type="button" class="chip">Meus grupos</button>
+      </div>
+
+      <div class="group-list">
+        <article class="group-card">
+          <div class="avatar avatar-blue">M</div>
+          <div class="group-content">
+            <h3>Matematica Aplicada</h3>
+            <p>Seg e qua • 17h</p>
+            <div class="group-actions">
+              <span class="tag tag-blue">Calculo</span>
+              <button type="button" class="enter-btn enter-blue">Entrar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card">
+          <div class="avatar avatar-green">P</div>
+          <div class="group-content">
+            <h3>Programacao Java</h3>
+            <p>Quinta • 14h</p>
+            <div class="group-actions">
+              <span class="tag tag-green">Tecnologia</span>
+              <button type="button" class="enter-btn enter-green">Entrou</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="group-card">
+          <div class="avatar avatar-yellow">H</div>
+          <div class="group-content">
+            <h3>Historia do Brasil</h3>
+            <p>Sexta • 16h</p>
+            <div class="group-actions">
+              <span class="tag tag-yellow">ENEM</span>
+              <button type="button" class="enter-btn enter-blue">Entrar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button type="button" class="create-group-btn">Criar grupo</button>
+
+      <nav class="bottom-nav">
+        <a href="#" class="active">Listar</a>
+        <a href="#">Chat</a>
+        <a href="#">Conta</a>
+      </nav>
+    </section>
   </main>
 
   <script>
     const loginScreen = document.getElementById("login-screen");
     const registerScreen = document.getElementById("register-screen");
+    const homeScreen = document.getElementById("home-screen");
+    const loginForm = loginScreen.querySelector("form");
+    const registerForm = registerScreen.querySelector("form");
     const goRegister = document.getElementById("go-register");
     const goLogin = document.getElementById("go-login");
+
+    function openHome() {
+      loginScreen.classList.add("hidden");
+      registerScreen.classList.add("hidden");
+      homeScreen.classList.remove("hidden");
+    }
 
     goRegister.addEventListener("click", function (event) {
       event.preventDefault();
       loginScreen.classList.add("hidden");
       registerScreen.classList.remove("hidden");
+      homeScreen.classList.add("hidden");
     });
 
     goLogin.addEventListener("click", function (event) {
       event.preventDefault();
       registerScreen.classList.add("hidden");
       loginScreen.classList.remove("hidden");
+      homeScreen.classList.add("hidden");
+    });
+
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      openHome();
+    });
+
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      openHome();
     });
   </script>
 </body>
