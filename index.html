@@ -20,7 +20,7 @@
         </div>
       </header>
 
-      <form class="form" action="#">
+      <form class="form" action="#" novalidate>
         <label for="email">Email</label>
         <input id="email" type="email" placeholder="exemplo@email.com" />
 
@@ -28,7 +28,7 @@
         <input id="senha" type="password" placeholder="********" />
 
         <a class="helper-link" href="#">Esqueci minha senha</a>
-        <button type="submit" class="primary-btn">Entrar</button>
+        <button type="button" class="primary-btn" id="login-enter">Entrar</button>
       </form>
 
       <aside class="signup-box">
@@ -47,12 +47,12 @@
         </div>
       </header>
 
-      <form class="form" action="#">
+      <form class="form" action="#" novalidate>
         <input type="text" placeholder="Nome completo" />
         <input type="email" placeholder="seu@email.com" />
         <input type="password" placeholder="Senha" />
         <input type="password" placeholder="Confirmar senha" />
-        <button type="submit" class="primary-btn">Criar conta</button>
+        <button type="button" class="primary-btn" id="register-create">Criar conta</button>
       </form>
 
       <p class="terms">Ao continuar, voce aceita os <a href="#">Termos de Uso</a>.</p>
@@ -133,8 +133,8 @@
     const loginScreen = document.getElementById("login-screen");
     const registerScreen = document.getElementById("register-screen");
     const homeScreen = document.getElementById("home-screen");
-    const loginForm = loginScreen.querySelector("form");
-    const registerForm = registerScreen.querySelector("form");
+    const loginEnter = document.getElementById("login-enter");
+    const registerCreate = document.getElementById("register-create");
     const goRegister = document.getElementById("go-register");
     const goLogin = document.getElementById("go-login");
 
@@ -158,13 +158,11 @@
       homeScreen.classList.add("hidden");
     });
 
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    loginEnter.addEventListener("click", function () {
       openHome();
     });
 
-    registerForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    registerCreate.addEventListener("click", function () {
       openHome();
     });
   </script>
